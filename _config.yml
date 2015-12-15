@@ -43,7 +43,7 @@ info:
 
 # Root URL where the site will be published
 url:        "http://nextdevboard.github.io"
-baseurl:  "/my_blog"
+baseurl:  "/home"
 
 # host 0.0.0.0 allows us to access site via sapphire.local or localhost or 127.0.0.1
 host: 0.0.0.0
@@ -58,7 +58,7 @@ safe:               false
 #
 assets:
   dirname: assets
-  baseurl: /my_blog/assets/
+  baseurl: /home/assets/
   sources:
     - _assets/javascripts
     - _assets/stylesheets
