@@ -1,9 +1,11 @@
 info:
   # Blog Information
-  title:        "Will Koehler"
-  subtitle:     "Independent web developer living in Columbus, OH"
-  cover_image:  short-north-columbus-oh.jpg
-  cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
+  title:        "NextDev"
+  subtitle:     "A User Interface Device for the Internet of Things"
+  cover_image:  nextdev-front.jpg
+  #cover_image:  short-north-columbus-oh.jpg
+  #cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
+  cover_image_caption: "Front view of NextDev"
   about_image:  goodale-park-columbus-oh.jpg
   about_image_caption: "Goodale Park, Columbus, OH. Photo: Dave K."
   logo:         logo.png
@@ -37,7 +39,8 @@ info:
   # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 
 # Root URL where the site will be published
-url:         http://willkoehler.net
+url:        "http://nextdevboard.github.io"
+baseurl:  "/my_blog"
 
 # host 0.0.0.0 allows us to access site via sapphire.local or localhost or 127.0.0.1
 host: 0.0.0.0
@@ -52,7 +55,7 @@ safe:               false
 #
 assets:
   dirname: assets
-  baseurl: /assets/
+  baseurl: /my_blog/assets/
   sources:
     - _assets/javascripts
     - _assets/stylesheets
