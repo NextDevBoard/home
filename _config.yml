@@ -6,8 +6,10 @@ info:
   #cover_image:  short-north-columbus-oh.jpg
   #cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
   cover_image_caption: "Front view of NextDev"
-  about_image:  goodale-park-columbus-oh.jpg
-  about_image_caption: "Goodale Park, Columbus, OH. Photo: Dave K."
+  #about_image:  goodale-park-columbus-oh.jpg
+  about_image:  nextdev-back.jpg
+  #about_image_caption: "Goodale Park, Columbus, OH. Photo: Dave K."
+  about_image_caption: "Rear view of NextDev"
   logo:         logo.png
   
   # Social links
@@ -19,18 +21,19 @@ info:
   # Comments
   disqus:
     # Eg. "exampleblog" Set to false to disable comments
-    shortname:  koehlerblog
+    #shortname:  koehlerblog
+    shortname:  false
   
   # Google Analytics tracking ID. Leave blank to disable tracking
   google-analytics-id: 'UA-54124306-1'
   
   # Sharing settings
   sharing:
-    twitter:    true
-    facebook:   true
+    twitter:    false
+    facebook:   false
     gplus:      false
     hn:         false
-    reddit:     true
+    reddit:     false
     
   # Google Fonts
   # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'

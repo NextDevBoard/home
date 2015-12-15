@@ -2,7 +2,7 @@
 layout: base
 ---
 {% if page.cover_image %}
-<div class="article-cover" style="background-image:url(/images/{{ page.cover_image }})"></div>
+<div class="article-cover" style="background-image:url({{ site.baseurl }}/images/{{ page.cover_image }})"></div>
 {% endif %}
 {% if page.cover_image_caption %}
 <div class='cover-caption'><a href='/about.html#pictures'>{{ page.cover_image_caption }}</a></div>
@@ -13,7 +13,7 @@ layout: base
   <div class="container">
     <header>
       <div class="meta">
-        By <address><a rel="author" href="{{ page.author.link }}" title="{{ page.author.name }}" target="_blank">{{ page.author.name }}</a></address> &mdash;
+        By <address><a rel="author" href="{{ site.baseurl }}{{ page.author.link }}" title="{{ page.author.name }}" target="_blank">{{ page.author.name }}</a></address> &mdash;
         <time pubdate datetime="{{ page.date | date: "%Y-%d-%B" }}" title="{{ page.date | date: "%b %d, %Y" }}">{{ page.date | date: "%b %d, %Y" }}</time> &mdash;
         {% include read_time_estimate.html content=content %}
       </div>
@@ -28,7 +28,7 @@ layout: base
 
     <footer>
       <address>
-        {% if page.author.image %}<img src="/images/{{ page.author.image }}">{% endif %}
+        {% if page.author.image %}<img src="{{ site.baseurl }}/images/{{ page.author.image }}">{% endif %}
         <p>Written by <strong><a rel="author" href="https://twitter.com/{{ page.author.twitter }}" title="{{ page.author_name }}" target="_blank">{{ page.author.name }}</a></strong><br>
           <span class="muted">{{ page.author.bio }}</span>
         </p>
@@ -36,7 +36,7 @@ layout: base
       {% if page.next.url %}
       {% assign post = page.next %}
       <section class="post_summary">
-        <h3 class="title">Next up: <a href="{{ post.url }}" rel="prefetch">{{ post.title }}</a></h3>
+        <h3 class="title">Next up: <a href="{{ site.baseurl }}{{ post.url }}" rel="prefetch">{{ post.title }}</a></h3>
         <p>{{ post.excerpt }}</p>
         <hr>
       </section>
@@ -44,7 +44,7 @@ layout: base
       {% if page.previous.url %}
       {% assign post = page.previous %}
       <section class="post_summary">
-        <h3 class="title">Previous story: <a href="{{ post.url }}" rel="prefetch">{{ post.title }}</a></h3>
+        <h3 class="title">Previous story: <a href="{{ site.baseurl }}{{ post.url }}" rel="prefetch">{{ post.title }}</a></h3>
         <p>{{ post.excerpt }}</p>
         <hr>
       </section>
