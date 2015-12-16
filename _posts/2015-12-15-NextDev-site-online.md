@@ -47,7 +47,7 @@ For this example I will use the LUA scripting language.  Code can also be writte
 
 The first thing you need to do is initialize the library and Nextion display.  Then send a command to tell the display to go to the first page.  It is possible to divide the UI into multiple pages (and for smaller LCD panels is almost a necessity).
 
-Here is the sample code:
+Here is a simple code example:
 
 {% highlight lua linenos %}
 disp = require("Nextion")
