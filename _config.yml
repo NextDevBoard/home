@@ -22,10 +22,10 @@ info:
   disqus:
     # Eg. "exampleblog" Set to false to disable comments
     #shortname:  koehlerblog
-    shortname:  false
+    shortname:  nextdev
   
   # Google Analytics tracking ID. Leave blank to disable tracking
-  google-analytics-id: 'UA-54124306-1'
+  google-analytics-id: 'UA-71498407-1'
   
   # Sharing settings
   sharing:
