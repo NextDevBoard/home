@@ -87,7 +87,7 @@ You are good to go!
 The NextDev board alone (without Nextion display) can be used to add WiFi connectivity to your Raspberry Pi!
 
 
-Image of the frong of NextDev
+Image of the front of NextDev
 
 <div class="full zoomable"><img src="{{ site.baseurl }}/images/nextdev-front.jpg"></div>
 
