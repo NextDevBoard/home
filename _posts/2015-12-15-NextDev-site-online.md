@@ -37,10 +37,10 @@ I'll show you how this process works using the relay demo shown in the KickStare
 Here are the steps to build an application:
 
 ## Step 1 - Layout your UI using the Nextion Editor.
-You can download the Nextion editor from THIS LINK.  Add 4 button components to the first page of your UI.  In my case I just used simple buttons.   If desired, you can associate these with images that you upload to the Nextion display's flash storage.  When you are done generate a .TFT file and copy it to a micro SD card.  And plug it into the Nextion.  It will be transferred to the Nextions internal flash.  Power it down and remove the SD card.  You are ready to control this UI from NextDev.
+You can download the Nextion editor [here](http://nextion.itead.cc/download.html).  Add 4 button components to the first page of your UI.  In my case I just used simple buttons.   If desired, you can associate these with images that you upload to the Nextion display's flash storage.  When you are done generate a .TFT file and copy it to a micro SD card.  And plug it into the Nextion.  It will be transferred to the Nextions internal flash.  Power it down and remove the SD card.  You are ready to control this UI from NextDev.
 
 <!-- Image of Nextion Editor with 4 button UI -->
-<!--<div class="full zoomable"><img src="{{ site.baseurl }}/images/nextdev-front.jpg"></div>-->
+<div class="full zoomable"><img src="{{ site.baseurl }}/images/NextionEditorScreenshot.png"></div>
 
 ## Step 2 - Write your code and upload it to NextDev.
 For this example I will use the LUA scripting language.  Code can also be written using the Arduino IDE for the ESP8266.  By default, the LUA runtime environment (NodeMCU) and the NextDev driver APIs are shipped pre-installed on the NextDev.  
@@ -67,7 +67,7 @@ disp.sendCommand("page 0") -- If this command is not specified, the display will
 
 {% endhighlight %}
 
-Transfer this code to your NextDev board via a USB cable.  There are a number of IDE tools available for the NodeMCU firmware.  My favorite is ESPlorer.  You can download this software here:  ESPLORER LINK.
+Transfer this code to your NextDev board via a USB cable.  There are a number of IDE tools available for the NodeMCU firmware.  My favorite is ESPlorer.  You can download this software [here](http://esp8266.ru/esplorer).
 
 
 
@@ -87,10 +87,7 @@ You are good to go!
 The NextDev board alone (without Nextion display) can be used to add WiFi connectivity to your Raspberry Pi!
 
 
-##Zoomable images
-
 Image of the frong of NextDev
 
 <div class="full zoomable"><img src="{{ site.baseurl }}/images/nextdev-front.jpg"></div>
 
-That's all for now. Thanks for reading.
