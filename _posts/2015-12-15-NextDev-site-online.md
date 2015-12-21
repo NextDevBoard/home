@@ -5,7 +5,7 @@ title: Introducing NextDev!
 subtitle: "A User Interface for the IoT"
 cover_image: nextdev-back.jpg
 
-excerpt: "NextDev is a small, low cost, WiFi (Internet) connected device designed to integrate with a LCD TFT touch screen display.    In a very real sense it is a standalone computer for controlling a network of sensors and actuators.   It simplifies the development your own applications for the Internet of Things (IoT)."
+excerpt: "NextDev is a small, low cost, WiFi (Internet) connected device with an integrated LCD TFT touch screen display.    In a very real sense it is a standalone computer for controlling a network of sensors and actuators.   It simplifies the development your own applications for the Internet of Things (IoT)."
 
 author:
   name: Guy Molinari
@@ -13,7 +13,7 @@ author:
   bio: Software Engineer, Architect, Hardware Enthusiast
   image: logo.png
 ---
-NextDev is a small, low cost, WiFi (Internet) connected device designed to integrate with a LCD TFT touch screen display.    In a very real sense it is a standalone computer for controlling a network of sensors and actuators.   It simplifies the development your own applications for the Internet of Things (IoT). Constructing a user interface UI can be a challenging and time consuming endeavor.
+NextDev is a small, low cost, WiFi (Internet) connected device with an integrated LCD TFT touch screen display.    In a very real sense it is a standalone computer for controlling a network of sensors and actuators.   It simplifies the development your own applications for the Internet of Things (IoT). Constructing a user interface UI can be a challenging and time consuming endeavor.
 
 > “NextDev makes this process fun!"
 
@@ -72,19 +72,32 @@ Transfer this code to your NextDev board via a USB cable.  There are a number of
 
 
 ## Step 3 - Configure the WiFi connection on the NextDev.
-Go to a web browser and connext type in **192.168.4.4**.  The following web page will be displayed:
-
-<!-- Image of web page with NextDev config web page ->>
-<!--<div class="full zoomable"><img src="{{ site.baseurl }}/images/nextdev-front.jpg"></div>-->
 
 Enter the configuration settings for your router (SSID, password) and the IP address of an MQTT broker.  You can use our broker or you can set up your own if desired.   We are using the open source broker called **mosquitto** (www.mosquitto.org).  Click **Save** and power cycle the NextDev.   
 
 You are good to go!
 
 
-##Additional Uses
+## Specifications and Features
 
-The NextDev board alone (without Nextion display) can be used to add WiFi connectivity to your Raspberry Pi!
+* Nextion display offloads all graphics processing, either 4mb or 16mb flash (depending upon display choice), micro SD for loading display flash.
+* ESP8266 32-bit CPU application processor (80 Mhz over clockable to 160 Mhz)
+* Embedded LUA scripting language interpreter (Arduino optional)
+* All module pins broken out 
+* On-board 1.2A, 3.3V LDO regulator capable of powering external devices.
+* Powered by 5V USB or .1" header
+* Current ~210 mA (nominal with WiFi and display active).
+* Low power mode available (display can be put into sleep mode as well)
+* 802.11 b/g/n Wi-Fi Direct (P2P), soft-AP 
+* Integrated TCP/IP protocol stack 
+* +19.5dBm output power in 802.11b mode (~800 ft range!)
+* 12 available GPIO lines
+* SPI, I2C, TTL serial interfaces
+* Rich set of APIs
+* 4 mb flash filesystem on NextDev board
+* 80 kb RAM (~35K free for Lua scripts)
+* Support for a wide array of sensors and actuators
+
 
 
 Image of the front of NextDev
