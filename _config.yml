@@ -2,14 +2,14 @@ info:
   # Blog Information
   title:        "NextDev"
   subtitle:     "A User Interface Device for the Internet of Things"
-  cover_image:  nextdev-front.jpg
+  cover_image:  NextDevEnclosureFull.jpg
   #cover_image:  short-north-columbus-oh.jpg
   #cover_image_caption: "Short North, Columbus, OH. Photo: Pineapple XVI"
-  cover_image_caption: "Front view of NextDev"
+  cover_image_caption: "NextDev with polished blue enclosure"
   #about_image:  goodale-park-columbus-oh.jpg
-  about_image:  nextdev-back.jpg
+  about_image:  NextDev35.jpg
   #about_image_caption: "Goodale Park, Columbus, OH. Photo: Dave K."
-  about_image_caption: "Rear view of NextDev"
+  about_image_caption: "NextDev board"
   logo:         logo.png
   
   # Social links
