@@ -55,7 +55,7 @@ It's not sexy but it shows the "nuts and bolts" behind the example (I'm going to
 Current page = 0
 Screen brightness = 100
 {% endhighlight %}
-Then I clicked each of the buttons (1-4) on the display and got the following:
+I clicked each of the buttons (1-4) on the display and got the following:
 {% highlight c++ %}
 Current page = 0
 Screen brightness = 100
