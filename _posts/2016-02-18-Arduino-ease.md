@@ -49,7 +49,7 @@ void loop() {
 So, imagine you have designed a UI that looks like this via the Nextion editor:
 <div class="full zoomable"><img src="{{ site.baseurl }}/images/nextdev-front.jpg"></div>
 The Nextion allows you to assign names to each of the components on a page (in fact, the page itself can have a textual name).  In this example I named the button components "b1", "b2", "b3" and "b4".  I set the text values to be "Relay1" through 4.  This is all using the Nextion editor app on my windows desktop.  Then I saved the .HMI file and clicked "Compile".  The editor compiled my UI and generated a ".TFT" file.  I then uploaded this to my display. 
-It's not sexy but it shows the "nuts and bolts" behind the example.  Then I fired up my Auduino editor on my Mac and wrote the sketch above and flashed it to my NextDev board (connected by a simple USB cable).  Then I clicked "Serial Monitor" on the "Tools" tab.  It showed the following output:
+It's not sexy but it shows the "nuts and bolts" behind the example (I'm going to use fancy cropped images in a "real" app).  Then I fired up my Auduino editor on my Mac and wrote the sketch above and flashed it to my NextDev board (connected by a simple USB cable).  Then I clicked "Serial Monitor" on the "Tools" tab.  It showed the following output:
 
 {% highlight c++ %}
 Current page = 0
