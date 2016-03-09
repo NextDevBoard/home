@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>NextDev</title>
+ <link href="http://nextdevboard.github.io/home/atom.xml" rel="self"/>
+ <link href="http://nextdevboard.github.io/home"/>
+ <updated>2016-03-09T04:03:27+00:00</updated>
+ <id>http://nextdevboard.github.io/home/atom.xml</id>
+ <author>
+   <name>Guy A. Molinari</name>
+   <uri>http://nextdevboard.github.io/home</uri>
+ </author>
+ 
+ 
+ <entry>
+   <title>Arduino repository online.</title>
+   <link href="http://nextdevboard.github.io/home/2016/03/08/Arduino-repo-online.html"/>
+   <published>2016-03-08T00:00:00+00:00</published>
+   <updated>2016-03-08T00:00:00+00:00</updated>
+   <id>http://nextdevboard.github.io/home/2016/03/08/Arduino-repo-online</id>
+   <content type="html">&lt;p&gt;I have been pondering how I might distribute the Arduino software stack for NextDev.   The initial thought is that I would just release the code in the form of libraries that could be installed
+individually.   Then I thought, why not fork the repo at esp8266.com and create my own board manager.   This way all a developer needs to do is set up the URL to the board manager file location 
+and then click install.   All of the necessary bits would be installed right into the IDE in one click of a mouse button.  Of course, none of this is terribly useful without the NextDev board in
+hand.  But then I thought why not get this done and out of the way while I am dealing with the day to day details of getting the manufacturing deliverables done and coordinating the various aspects
+of this project.  It is exhausing but I want to make sure the community can jump right in when the boards arrive.   One of the goals of the NextDev project is really to build a community around
+this endeavour.   I would much rather this be a collaborative effort and look forward to the involvement of the larger community.&lt;/p&gt;
+
+&lt;p&gt;Another possibility is thorough testing using non-NextDev boards that are based upon the ESP-12 module such as NodeMCU 0.9.  The SPI-to-UART bridge will not work of course, but other boards would 
+at least provide access to schetches that use core WiFi capbility.  If nothing else, it would confirm that the board manager will install correctly.&lt;/p&gt;
+
+&lt;p&gt;Another aspect of this is the release of the repository for code review and inspection.   Many pair of eyes can be helpful in spotting problems early and addressing functionality gaps.  I have added 
+two new libraries.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;SpiSerial&lt;/em&gt; - This library provides an API for interfacing with the SC16IS750 SPI/UART bridge device.  This is a dependency of the NextDev library and is not directly accessed by the developer.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;NextDev&lt;/em&gt; - This library provides an API for all NextDev functionality including the 8 additional GPIO pins.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some additional libraries were also included in the repository:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;QueueList&lt;/em&gt; - This library is a dependency of the NextDev API and is used for event queuing.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;ArduinoJson&lt;/em&gt; - This library not a dependency of NextDev but is included as a convenience for building IoT applications.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;PubSubClient&lt;/em&gt; - This library is also not a dependency of NextDev but again included as a convenience for building IoT applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please let me know if there are any other “must haves” and I will include them.   Also, please don’t be shy and submit a pull request.  Just fork the repo and hack away.&lt;/p&gt;
+
+&lt;h2 id=&quot;repository-location&quot;&gt;Repository location&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;http://github.com/NextDevBoard/Arduino&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;installation-instructions&quot;&gt;Installation instructions&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You must be running version 1.6.6 (or later) of the Arduino IDE.  You can download or upgrade by accessing the &lt;code&gt;arduino.cc&lt;/code&gt; site.&lt;/li&gt;
+  &lt;li&gt;You’ll need to point the Arduino IDE board manager to a custom URL. Open up Arduino, then go to the Preferences (&lt;em&gt;File&lt;/em&gt; &amp;gt; &lt;em&gt;Preferences&lt;/em&gt;). Then, towards the bottom of the window, paste this URL into the “Additional Board Manager URLs” text box:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;nl&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//raw.githubusercontent.com/NextDevBoard/Arduino/master/install/package_nextdev_index.json&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then click OK to save the change.
+* Then navigate to the Board Manager by going to &lt;em&gt;Tools&lt;/em&gt; &amp;gt; &lt;em&gt;Boards&lt;/em&gt; &amp;gt; &lt;em&gt;Boards Manager&lt;/em&gt;. Look for esp8266. Click on that entry, then select &lt;em&gt;Install&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;After a few minutes the all files will be installed and ready for use.  A few more configuration steps to configure your board:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;With the Board addon installed, all that’s left to do is select “NextDev 1.0 (ESP-12 Module)” from the &lt;em&gt;Tools&lt;/em&gt; &amp;gt; &lt;em&gt;Boards&lt;/em&gt; menu.&lt;/li&gt;
+  &lt;li&gt;Connect your board using a short USB cable.  Actually shorter is better for higher transfer speeds.&lt;/li&gt;
+  &lt;li&gt;Then select your FTDI’s port number under the &lt;em&gt;Tools&lt;/em&gt; &amp;gt; &lt;em&gt;Port&lt;/em&gt; menu.  The baud rate defaults to 115200.  This is quite slow.  Try selecting 921600 for blazing fast flash updates.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You are now ready to write your first sketch.  You can find some examples on the &lt;em&gt;Sketchbook&lt;/em&gt; menu.&lt;/p&gt;
+
+&lt;p&gt;Next step is to bring the NodeMCU/Lua repo online and get feedback there as well.&lt;/p&gt;
+
+&lt;p&gt;More coming soon!
+Guy&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Arduino easiness!</title>
+   <link href="http://nextdevboard.github.io/home/2016/02/18/Arduino-ease.html"/>
+   <published>2016-02-18T00:00:00+00:00</published>
+   <updated>2016-02-18T00:00:00+00:00</updated>
+   <id>http://nextdevboard.github.io/home/2016/02/18/Arduino-ease</id>
+   <content type="html">&lt;p&gt;Yesterday I posted an update to Kickstarter with the news that the libarary and driver for the NextDev was complete.  A number of you asked me for a code example.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;#include &amp;quot;NextDev.h&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NextDev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Current page = &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Screen brightness = &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getIntVariable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;dim&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;Event&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;.txt&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;21&lt;/span&gt;   
+&lt;span class=&quot;lineno&quot;&gt;22&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Value for &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; = &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getStringVariable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;23&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;24&lt;/span&gt;    
+&lt;span class=&quot;lineno&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So, imagine you have designed a UI that looks like this via the Nextion editor:&lt;/p&gt;
+&lt;div class=&quot;full zoomable&quot;&gt;&lt;img src=&quot;/home/images/nextdev-front.jpg&quot; /&gt;&lt;/div&gt;
+&lt;p&gt;The Nextion allows you to assign names to each of the components on a page (in fact, the page itself can have a textual name).  In this example I named the button components “b1”, “b2”, “b3” and “b4”.  I set the text values to be “Relay1” through 4.  This is all using the Nextion editor app on my windows desktop.  Then I saved the .HMI file and clicked “Compile”.  The editor compiled my UI and generated a “.TFT” file.  I then uploaded this to my display. 
+It’s not sexy but it shows the “nuts and bolts” behind the example (I’m going to use fancy cropped images in a “real” app).  Next, I fired up my Auduino editor on my Mac and wrote the sketch above and flashed it to my NextDev board (connected by a simple USB cable).  Finally, I clicked “Serial Monitor” on the “Tools” tab.  It showed the following output:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;n&quot;&gt;Current&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Screen&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brightness&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I clicked each of the buttons (1-4) on the display and got the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;n&quot;&gt;Current&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Screen&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brightness&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Relay&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Relay&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Relay&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Relay&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Of course, I need to trigger some sort of action like send a message over WiFi to turn appliances on/off.  I have a “Sonoff” WiFi enabled power switch coming in the mail from iTead.  For a whopping $5!&lt;/p&gt;
+
+&lt;p&gt;More coming soon!
+Guy&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>NextDev launched!</title>
+   <link href="http://nextdevboard.github.io/home/2016/02/03/Kickstarter-launched.html"/>
+   <published>2016-02-03T00:00:00+00:00</published>
+   <updated>2016-02-03T00:00:00+00:00</updated>
+   <id>http://nextdevboard.github.io/home/2016/02/03/Kickstarter-launched</id>
+   <content type="html">&lt;p&gt;I am pleased to annouce that my project went live on Kickstarter.com at 3 pm.  I am asking my supporters to help me achieve 40 backers in the first 24 hours.   Doing so may result in the project becoming a “Staff Pick” on the Kickstarter site.&lt;/p&gt;
+
+&lt;p&gt;Here is the &lt;a href=&quot;https://www.kickstarter.com/projects/772515070/nextdev-a-user-interface-device-for-the-iot&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, please help spread the word on social media!&lt;/p&gt;
+
+&lt;p&gt;Thanks in advance,
+Guy&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introducing NextDev!</title>
+   <link href="http://nextdevboard.github.io/home/2015/12/15/NextDev-site-online.html"/>
+   <published>2015-12-15T00:00:00+00:00</published>
+   <updated>2015-12-15T00:00:00+00:00</updated>
+   <id>http://nextdevboard.github.io/home/2015/12/15/NextDev-site-online</id>
+   <content type="html">&lt;p&gt;NextDev is a small, low cost, WiFi (Internet) connected device with an integrated LCD TFT touch screen display.    In a very real sense it is a standalone computer for controlling a network of sensors and actuators.   It simplifies the development your own applications for the Internet of Things (IoT). Constructing a user interface UI can be a challenging and time consuming endeavor.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“NextDev makes this process fun!”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;NextDev integrates two technology components:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The ESP8266 WiFi System on a Chip (SoC).  This has taken the maker community by a storm.&lt;/li&gt;
+  &lt;li&gt;The Nextion TFT display from ITead Studio, a company who will also be the manufacturing partner for the NextDev.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;NextDev utilizes your choice of existing software development platforms:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The LUA scripting language via NodeMCU.&lt;/li&gt;
+  &lt;li&gt;The Arduino IDE tool for the ESP8622.&lt;/li&gt;
+  &lt;li&gt;Native ESP8266 SDK.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;NextDev interoperates and interconnects with other IoT platforms via standard communication protocols such as MQTT.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-nextdev-works&quot;&gt;How NextDev Works&lt;/h1&gt;
+
+&lt;p&gt;I’ll show you how this process works using the relay demo shown in the KickStarer video as a use case.&lt;/p&gt;
+
+&lt;p&gt;Here are the steps to build an application:&lt;/p&gt;
+
+&lt;h2 id=&quot;step-1---layout-your-ui-using-the-nextion-editor&quot;&gt;Step 1 - Layout your UI using the Nextion Editor.&lt;/h2&gt;
+&lt;p&gt;You can download the Nextion editor &lt;a href=&quot;http://nextion.itead.cc/download.html&quot;&gt;here&lt;/a&gt;.  Add 4 button components to the first page of your UI.  In my case I just used simple buttons.   If desired, you can associate these with images that you upload to the Nextion display’s flash storage.  When you are done generate a .TFT file and copy it to a micro SD card.  And plug it into the Nextion.  It will be transferred to the Nextions internal flash.  Power it down and remove the SD card.  You are ready to control this UI from NextDev.&lt;/p&gt;
+
+&lt;!-- Image of Nextion Editor with 4 button UI --&gt;
+&lt;div class=&quot;full zoomable&quot;&gt;&lt;img src=&quot;/home/images/NextionEditorScreenshot.png&quot; /&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;step-2---write-your-code-and-upload-it-to-nextdev&quot;&gt;Step 2 - Write your code and upload it to NextDev.&lt;/h2&gt;
+&lt;p&gt;For this example I will use the LUA scripting language.  Code can also be written using the Arduino IDE for the ESP8266.  By default, the LUA runtime environment (NodeMCU) and the NextDev driver APIs are shipped pre-installed on the NextDev.&lt;/p&gt;
+
+&lt;p&gt;The first thing you need to do is initialize the library and Nextion display.  Then send a command to tell the display to go to the first page.  It is possible to divide the UI into multiple pages (and for smaller LCD panels is almost a necessity).&lt;/p&gt;
+
+&lt;p&gt;Here is a simple code example:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-lua&quot; data-lang=&quot;lua&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Nextion&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onSysErr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Error code = &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;-- If an error occurs, print the details to the debug console.&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;-- This API call registers a function that will be called whenever a touch event occurs!&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onTouchEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Page &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; Component &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; Event &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;-- Your code goes here&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;page 0&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;-- If this command is not specified, the display will start with the first page.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Transfer this code to your NextDev board via a USB cable.  There are a number of IDE tools available for the NodeMCU firmware.  My favorite is ESPlorer.  You can download this software &lt;a href=&quot;http://esp8266.ru/esplorer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3---configure-the-wifi-connection-on-the-nextdev&quot;&gt;Step 3 - Configure the WiFi connection on the NextDev.&lt;/h2&gt;
+
+&lt;p&gt;Enter the configuration settings for your router (SSID, password) and the IP address of an MQTT broker.  You can use our broker or you can set up your own if desired.   We are using the open source broker called &lt;strong&gt;mosquitto&lt;/strong&gt; (www.mosquitto.org).  Click &lt;strong&gt;Save&lt;/strong&gt; and power cycle the NextDev.&lt;/p&gt;
+
+&lt;p&gt;You are good to go!&lt;/p&gt;
+
+&lt;h2 id=&quot;specifications-and-features&quot;&gt;Specifications and Features&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nextion display offloads all graphics processing, either 4mb or 16mb flash (depending upon display choice), micro SD for loading display flash.&lt;/li&gt;
+  &lt;li&gt;ESP8266 32-bit CPU application processor (80 Mhz over clockable to 160 Mhz)&lt;/li&gt;
+  &lt;li&gt;Embedded LUA scripting language interpreter (Arduino optional)&lt;/li&gt;
+  &lt;li&gt;All module pins broken out&lt;/li&gt;
+  &lt;li&gt;On-board 1.2A, 3.3V LDO regulator capable of powering external devices.&lt;/li&gt;
+  &lt;li&gt;Powered by 5V USB or .1” header&lt;/li&gt;
+  &lt;li&gt;Current ~210 mA (nominal with WiFi and display active).&lt;/li&gt;
+  &lt;li&gt;Low power mode available (display can be put into sleep mode as well)&lt;/li&gt;
+  &lt;li&gt;802.11 b/g/n Wi-Fi Direct (P2P), soft-AP&lt;/li&gt;
+  &lt;li&gt;Integrated TCP/IP protocol stack&lt;/li&gt;
+  &lt;li&gt;+19.5dBm output power in 802.11b mode (~800 ft range!)&lt;/li&gt;
+  &lt;li&gt;12 available GPIO lines&lt;/li&gt;
+  &lt;li&gt;SPI, I2C, TTL serial interfaces&lt;/li&gt;
+  &lt;li&gt;Rich set of APIs&lt;/li&gt;
+  &lt;li&gt;4 mb flash filesystem on NextDev board&lt;/li&gt;
+  &lt;li&gt;80 kb RAM (~35K free for Lua scripts)&lt;/li&gt;
+  &lt;li&gt;Support for a wide array of sensors and actuators&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Image of the front of NextDev&lt;/p&gt;
+
+&lt;div class=&quot;full zoomable&quot;&gt;&lt;img src=&quot;/home/images/NextDev35.jpg&quot; /&gt;&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ 
+</feed>

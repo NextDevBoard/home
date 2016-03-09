@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arduino easiness! &mdash; NextDev</title>
+  <!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js'></script><![endif]-->
+  
+  <link rel="stylesheet" href="/home/assets/app.css">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="/home/assets/app.js"></script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71498407-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <link rel="shortcut icon" href="/home/favicon.ico?v2" type="image/x-icon" />
+  <link rel="alternate" type="application/atom+xml" title="NextDev" href="/home/atom.xml" />
+  <meta name="title" content="Arduino easiness! ">
+  <link rel="canonical" href="/home/2016/02/18/Arduino-ease.html">
+   
+         
+  <meta property="og:title" content="Arduino easiness!"/>
+  <meta property="og:url" content="/home/2016/02/18/Arduino-ease.html"/>
+  <meta property="og:image" content="/home/images/NextDev35.jpg"/>
+  
+  <meta property="og:description" content="Yesterday I posted an update to Kickstarter with the news that the libarary and driver for the NextDev was complete.  A number of you asked me for a code example."/>
+  <meta name="description" content="Yesterday I posted an update to Kickstarter with the news that the libarary and driver for the NextDev was complete.  A number of you asked me for a code example."/>
+  
+  <meta property="og:site_name" content="NextDev">     
+</head>
+<body>
+    
+  <header class="site-header">
+    <nav>
+      <a class="brand" href="/home/">
+        <img src="/home/images/logo.png" alt="NextDev">
+      </a>
+      <a href="/home/">Blog</a>
+      <a href="/home/about.html">About</a>
+    </nav>
+  </header>
+
+  
+<div class="article-cover" style="background-image:url(/home/images/NextDev35.jpg)"></div>
+
+
+
+<article >
+
+  <div class="container">
+    <header>
+      <div class="meta">
+        By <address><a rel="author" href="/home" title="Guy Molinari" target="_blank">Guy Molinari</a></address> &mdash;
+        <time pubdate datetime="2016-18-February" title="Feb 18, 2016">Feb 18, 2016</time> &mdash;
+        
+3 min read
+      </div>
+      <h1 class="title">Arduino easiness!</h1>
+      <h2 class="subtitle">An update on the Arduino drivers</h2>
+    </header>
+
+    <section>
+      <p>Yesterday I posted an update to Kickstarter with the news that the libarary and driver for the NextDev was complete.  A number of you asked me for a code example.</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="lineno"> 1</span> <span class="cp">#include &quot;NextDev.h&quot;</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="n">NextDev</span> <span class="n">disp</span><span class="p">;</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 6</span>   <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="lineno"> 7</span>   <span class="n">disp</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="lineno"> 8</span>   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Current page = &quot;</span><span class="p">);</span>
+<span class="lineno"> 9</span>   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">disp</span><span class="p">.</span><span class="n">getPage</span><span class="p">());</span>
+<span class="lineno">10</span>   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Screen brightness = &quot;</span><span class="p">);</span>
+<span class="lineno">11</span>   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">disp</span><span class="p">.</span><span class="n">getIntVariable</span><span class="p">(</span><span class="s">&quot;dim&quot;</span><span class="p">));</span>
+<span class="lineno">12</span> <span class="p">}</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span>     <span class="k">if</span> <span class="p">(</span><span class="n">disp</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
+<span class="lineno">17</span>        <span class="n">Event</span> <span class="n">e</span> <span class="o">=</span> <span class="n">disp</span><span class="p">.</span><span class="n">getEvent</span><span class="p">();</span>
+<span class="lineno">18</span>        <span class="n">String</span> <span class="n">v</span> <span class="o">=</span> <span class="s">&quot;b&quot;</span><span class="p">;</span>
+<span class="lineno">19</span>        <span class="n">v</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">getComponent</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="lineno">20</span>        <span class="n">v</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="s">&quot;.txt&quot;</span><span class="p">);</span>
+<span class="lineno">21</span>   
+<span class="lineno">22</span>        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Value for &quot;</span> <span class="o">+</span> <span class="n">v</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">disp</span><span class="p">.</span><span class="n">getStringVariable</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+<span class="lineno">23</span>     <span class="p">}</span>
+<span class="lineno">24</span>    
+<span class="lineno">25</span> <span class="p">}</span></code></pre></div>
+
+<p>So, imagine you have designed a UI that looks like this via the Nextion editor:</p>
+<div class="full zoomable"><img src="/home/images/nextdev-front.jpg" /></div>
+<p>The Nextion allows you to assign names to each of the components on a page (in fact, the page itself can have a textual name).  In this example I named the button components “b1”, “b2”, “b3” and “b4”.  I set the text values to be “Relay1” through 4.  This is all using the Nextion editor app on my windows desktop.  Then I saved the .HMI file and clicked “Compile”.  The editor compiled my UI and generated a “.TFT” file.  I then uploaded this to my display. 
+It’s not sexy but it shows the “nuts and bolts” behind the example (I’m going to use fancy cropped images in a “real” app).  Next, I fired up my Auduino editor on my Mac and wrote the sketch above and flashed it to my NextDev board (connected by a simple USB cable).  Finally, I clicked “Serial Monitor” on the “Tools” tab.  It showed the following output:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">Current</span> <span class="n">page</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Screen</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">100</span></code></pre></div>
+
+<p>I clicked each of the buttons (1-4) on the display and got the following:</p>
+
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="n">Current</span> <span class="n">page</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Screen</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">Value</span> <span class="k">for</span> <span class="n">b0</span><span class="p">.</span><span class="n">txt</span> <span class="o">=</span> <span class="n">Relay</span> <span class="mi">1</span>
+<span class="n">Value</span> <span class="k">for</span> <span class="n">b1</span><span class="p">.</span><span class="n">txt</span> <span class="o">=</span> <span class="n">Relay</span> <span class="mi">2</span>
+<span class="n">Value</span> <span class="k">for</span> <span class="n">b2</span><span class="p">.</span><span class="n">txt</span> <span class="o">=</span> <span class="n">Relay</span> <span class="mi">3</span>
+<span class="n">Value</span> <span class="k">for</span> <span class="n">b3</span><span class="p">.</span><span class="n">txt</span> <span class="o">=</span> <span class="n">Relay</span> <span class="mi">4</span></code></pre></div>
+
+<p>Of course, I need to trigger some sort of action like send a message over WiFi to turn appliances on/off.  I have a “Sonoff” WiFi enabled power switch coming in the mail from iTead.  For a whopping $5!</p>
+
+<p>More coming soon!
+Guy</p>
+
+
+      
+<div class="social">
+  
+  <div class='twitter'>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Arduino easiness!" data-related="molinari_guy">Tweet</a>
+  </div>
+  
+
+  
+  <div class='facebook'>
+    <div class="fb-share-button" data-layout="button_count"></div>
+  </div>
+  
+
+  
+    
+  
+
+  
+</div>
+
+    </section>
+
+    <footer>
+      <address>
+        <img src="/home/images/logo.png">
+        <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank">Guy Molinari</a></strong><br>
+          <span class="muted">Software Engineer, Architect, Hardware Enthusiast</span>
+        </p>
+      </address>
+      
+      
+      <section class="post_summary">
+        <h3 class="title">Next up: <a href="/home/2016/03/08/Arduino-repo-online.html" rel="prefetch">Arduino repository online.</a></h3>
+        <p>Over the past few days I have started to get the Arduino code repository online so that the community can get a preview.</p>
+        <hr>
+      </section>
+       
+      
+      
+      <section class="post_summary">
+        <h3 class="title">Previous story: <a href="/home/2016/02/03/Kickstarter-launched.html" rel="prefetch">NextDev launched!</a></h3>
+        <p>NextDev was launched on Kickstarter today at 3 pm.</p>
+        <hr>
+      </section>
+       
+      
+      <section>
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'nextdev';
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+      </section>
+      
+    </footer>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2016 Will Koehler
+        
+      <nav>
+        <a href="/home/">Blog</a> &middot;
+        <a href="/home/about.html">About</a>
+      </nav>
+        
+      <nav class="social">
+        
+<a href="https://twitter.com/molinari_guy" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+
+
+
+<a href="http://facebook.com/NextDev-800150916777256" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+
+<a href="/home/atom.xml" title="RSS Feed">
+  <i class="icon icon-rss"></i>
+</a>
+
+      </nav>
+      <div>Based on Incorporated theme by <a href="https://sendtoinc.com">Inc</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>
