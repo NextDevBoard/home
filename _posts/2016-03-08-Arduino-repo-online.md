@@ -43,8 +43,12 @@ Please let me know if there are any other "must haves" and I will include them. 
 ## Installation instructions
 
 * You must be running version 1.6.6 (or later) of the Arduino IDE.  You can download or upgrade by accessing the `arduino.cc` site.
-* You’ll need to point the Arduino IDE board manager to a custom URL. Open up Arduino, then go to the Preferences (*File* > *Preferences*). Then, towards the bottom of the window, paste this URL into the “Additional Board Manager URLs” text box: `https://raw.githubusercontent.com/NextDevBoard/Arduino/master/install/package_nextdev_index.json`.  Then click OK to save the change.
-* Then navigate to the Board Manager by going to *Tools* > *Boards* > *Boards Manager*. Look for esp8266. Click on that entry, then select Install.
+* You’ll need to point the Arduino IDE board manager to a custom URL. Open up Arduino, then go to the Preferences (*File* > *Preferences*). Then, towards the bottom of the window, paste this URL into the “Additional Board Manager URLs” text box:
+{% highlight c++ %}
+https://raw.githubusercontent.com/NextDevBoard/Arduino/master/install/package_nextdev_index.json
+{% endhighlight %}
+Then click OK to save the change.
+* Then navigate to the Board Manager by going to *Tools* > *Boards* > *Boards Manager*. Look for esp8266. Click on that entry, then select *Install*.
 
 After a few minutes the all files will be installed and ready for use.  A few more configuration steps to configure your board:
 
