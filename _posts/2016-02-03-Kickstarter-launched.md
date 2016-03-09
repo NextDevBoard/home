@@ -3,7 +3,7 @@ layout: post
 
 title: NextDev launched!
 subtitle: "Live on Kickstarter"
-cover_image: nextdev-front.jpg
+cover_image: NextDev-openside.jpg
 
 excerpt: "NextDev was launched on Kickstarter today at 3 pm."
 

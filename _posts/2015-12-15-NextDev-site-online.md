@@ -3,7 +3,7 @@ layout: post
 
 title: Introducing NextDev!
 subtitle: "A User Interface for the IoT"
-cover_image: NextDevEnclosureFull.jpg
+cover_image: NextDev-openside.jpg
 
 excerpt: "NextDev is a small, low cost, WiFi (Internet) connected device with an integrated LCD TFT touch screen display.    In a very real sense it is a standalone computer for controlling a network of sensors and actuators.   It simplifies the development your own applications for the Internet of Things (IoT)."
 
